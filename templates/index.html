@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Live weather conditions with a practical AI-generated summary.">
+  <title>AI Weather</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <p class="eyebrow">LIVE WEATHER + AI INSIGHT</p>
+      <h1>How does the day feel?</h1>
+      <p class="subtitle">Search a city for current conditions and a clear, practical summary.</p>
+    </header>
+    <form id="weather-form" class="search" novalidate>
+      <label class="sr-only" for="city">City name</label>
+      <input id="city" name="city" type="text" placeholder="Enter a city, e.g. Chennai" autocomplete="off" maxlength="100" required>
+      <button type="submit">Check weather</button>
+    </form>
+    <p id="message" class="message" role="alert"></p>
+    <section id="weather-card" class="weather-card" hidden aria-live="polite">
+      <div class="location-row">
+        <div>
+          <p id="location" class="location"></p>
+          <p id="condition" class="condition"></p>
+        </div>
+        <img id="weather-icon" alt="" width="100" height="100">
+      </div>
+      <div class="temperature"><span id="temperature"></span><sup>&deg;C</sup></div>
+      <p id="feels-like" class="feels-like"></p>
+      <div class="metrics">
+        <div><span>Humidity</span><strong id="humidity"></strong></div>
+        <div><span>Wind</span><strong id="wind"></strong></div>
+      </div>
+      <div class="insight"><span>AI WEATHER NOTE</span><p id="explanation"></p></div>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
